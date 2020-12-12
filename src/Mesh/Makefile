@@ -98,14 +98,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\GCFD\MeshModule\tests\CMakeFiles D:\GCFD\MeshModule\tests\\CMakeFiles\progress.marks
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
+	cd /d D:\GCFD\MeshModule\tests && $(CMAKE_COMMAND) -E cmake_progress_start D:\GCFD\MeshModule\tests\CMakeFiles D:\GCFD\MeshModule\src\Mesh\\CMakeFiles\progress.marks
+	cd /d D:\GCFD\MeshModule\tests && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 D:/GCFD/MeshModule/src/Mesh/all
 	$(CMAKE_COMMAND) -E cmake_progress_start D:\GCFD\MeshModule\tests\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 clean
+	cd /d D:\GCFD\MeshModule\tests && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 D:/GCFD/MeshModule/src/Mesh/clean
 .PHONY : clean
 
 # The main clean target
@@ -115,71 +115,60 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 preinstall
+	cd /d D:\GCFD\MeshModule\tests && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 D:/GCFD/MeshModule/src/Mesh/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 preinstall
+	cd /d D:\GCFD\MeshModule\tests && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 D:/GCFD/MeshModule/src/Mesh/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 1
+	cd /d D:\GCFD\MeshModule\tests && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named test_mesh_01
+# Convenience name for target.
+D:/GCFD/MeshModule/src/Mesh/CMakeFiles/Mesh.dir/rule:
+	cd /d D:\GCFD\MeshModule\tests && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 D:/GCFD/MeshModule/src/Mesh/CMakeFiles/Mesh.dir/rule
+.PHONY : D:/GCFD/MeshModule/src/Mesh/CMakeFiles/Mesh.dir/rule
 
-# Build rule for target.
-test_mesh_01: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 test_mesh_01
-.PHONY : test_mesh_01
+# Convenience name for target.
+Mesh: D:/GCFD/MeshModule/src/Mesh/CMakeFiles/Mesh.dir/rule
 
-# fast build rule for target.
-test_mesh_01/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_mesh_01.dir\build.make CMakeFiles/test_mesh_01.dir/build
-.PHONY : test_mesh_01/fast
-
-#=============================================================================
-# Target rules for targets named Mesh
-
-# Build rule for target.
-Mesh: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Mesh
 .PHONY : Mesh
 
 # fast build rule for target.
 Mesh/fast:
-	$(MAKE) $(MAKESILENT) -f D:\GCFD\MeshModule\src\Mesh\CMakeFiles\Mesh.dir\build.make D:/GCFD/MeshModule/src/Mesh/CMakeFiles/Mesh.dir/build
+	cd /d D:\GCFD\MeshModule\tests && $(MAKE) $(MAKESILENT) -f D:\GCFD\MeshModule\src\Mesh\CMakeFiles\Mesh.dir\build.make D:/GCFD/MeshModule/src/Mesh/CMakeFiles/Mesh.dir/build
 .PHONY : Mesh/fast
 
-test_mesh_01.obj: test_mesh_01.cpp.obj
+Mesh.obj: Mesh.cpp.obj
 
-.PHONY : test_mesh_01.obj
+.PHONY : Mesh.obj
 
 # target to build an object file
-test_mesh_01.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_mesh_01.dir\build.make CMakeFiles/test_mesh_01.dir/test_mesh_01.cpp.obj
-.PHONY : test_mesh_01.cpp.obj
+Mesh.cpp.obj:
+	cd /d D:\GCFD\MeshModule\tests && $(MAKE) $(MAKESILENT) -f D:\GCFD\MeshModule\src\Mesh\CMakeFiles\Mesh.dir\build.make D:/GCFD/MeshModule/src/Mesh/CMakeFiles/Mesh.dir/Mesh.cpp.obj
+.PHONY : Mesh.cpp.obj
 
-test_mesh_01.i: test_mesh_01.cpp.i
+Mesh.i: Mesh.cpp.i
 
-.PHONY : test_mesh_01.i
+.PHONY : Mesh.i
 
 # target to preprocess a source file
-test_mesh_01.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_mesh_01.dir\build.make CMakeFiles/test_mesh_01.dir/test_mesh_01.cpp.i
-.PHONY : test_mesh_01.cpp.i
+Mesh.cpp.i:
+	cd /d D:\GCFD\MeshModule\tests && $(MAKE) $(MAKESILENT) -f D:\GCFD\MeshModule\src\Mesh\CMakeFiles\Mesh.dir\build.make D:/GCFD/MeshModule/src/Mesh/CMakeFiles/Mesh.dir/Mesh.cpp.i
+.PHONY : Mesh.cpp.i
 
-test_mesh_01.s: test_mesh_01.cpp.s
+Mesh.s: Mesh.cpp.s
 
-.PHONY : test_mesh_01.s
+.PHONY : Mesh.s
 
 # target to generate assembly for a file
-test_mesh_01.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_mesh_01.dir\build.make CMakeFiles/test_mesh_01.dir/test_mesh_01.cpp.s
-.PHONY : test_mesh_01.cpp.s
+Mesh.cpp.s:
+	cd /d D:\GCFD\MeshModule\tests && $(MAKE) $(MAKESILENT) -f D:\GCFD\MeshModule\src\Mesh\CMakeFiles\Mesh.dir\build.make D:/GCFD/MeshModule/src/Mesh/CMakeFiles/Mesh.dir/Mesh.cpp.s
+.PHONY : Mesh.cpp.s
 
 # Help Target
 help:
@@ -190,10 +179,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Mesh
-	@echo ... test_mesh_01
-	@echo ... test_mesh_01.obj
-	@echo ... test_mesh_01.i
-	@echo ... test_mesh_01.s
+	@echo ... Mesh.obj
+	@echo ... Mesh.i
+	@echo ... Mesh.s
 .PHONY : help
 
 
@@ -205,6 +193,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 0
+	cd /d D:\GCFD\MeshModule\tests && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

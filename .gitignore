@@ -33,3 +33,8 @@
 
 #VS Code configuration
 .vscode
+
+
+# cmake files
+*.cmake
+CMakeFiles
