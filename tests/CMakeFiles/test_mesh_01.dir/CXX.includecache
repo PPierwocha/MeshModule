@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../src/Mesh/Mesh.h
+fstream
+-
+vector
+-
+string
+-
+iostream
+-
+regex
+-
+
+D:/GCFD/MeshModule/tests/test_mesh_01.cpp
+string
+-
+../Mesh/Mesh.h
+D:/GCFD/MeshModule/Mesh/Mesh.h
+
