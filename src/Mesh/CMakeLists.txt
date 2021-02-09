@@ -14,6 +14,7 @@ add_library(
     Mesh.cpp
 )
 
-target_link_libraries(Mesh PUBLIC element)
+target_link_libraries(Mesh PUBLIC Element)
+target_link_libraries(Mesh PUBLIC Triangle)
 
 target_include_directories(Mesh PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}")

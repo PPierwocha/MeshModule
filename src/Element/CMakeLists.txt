@@ -1,9 +1,16 @@
 cmake_minimum_required(VERSION 2.8)
 
 add_library(
-    element
+    Element
     Element.h
     Element.cpp
 )
 
-target_include_directories(element PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}")
+add_library(
+    Triangle
+    Triangle.h
+    Triangle.cpp
+)
+
+target_include_directories(Element PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}")
+target_include_directories(Triangle PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}")

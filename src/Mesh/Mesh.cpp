@@ -1,4 +1,3 @@
-#pragma once
 #include "Mesh.h"
 
 
@@ -207,4 +206,19 @@ void Mesh::readElementFromLine(std::string line_)
         std::cout << x << " ";
     
     std::cout << "\n";
+
+    // instating an Element
+    // switch (elm_type_int)
+    // {
+    // case 15:
+    //     elm_nodes.resize(1); // 1-node point
+    //     break;
+    // case 1:
+    //     elm_nodes.resize(2); // 2-node line
+    //     break;
+    // case 2: // 3-node triangle
+    //     // Triangle(); 
+    // default:
+    //     break;
+    // }
 }

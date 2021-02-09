@@ -1,3 +1,6 @@
+// #pragma once
+#ifndef ELEMENT_H
+#define ELEMENT_H
 #include <vector>
 #include <string>
 
@@ -18,6 +21,12 @@ class Element
 
     public:
 
+    Element();
+    ~Element();
+
     
 
 };
+
+
+#endif

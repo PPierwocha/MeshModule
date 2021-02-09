@@ -1,11 +1,12 @@
+#pragma once
 #include <fstream>
 #include <vector>
 #include <string>
 #include <iostream>
 #include <regex>
 #include <map>
-#include <..\Element\Element.h>
-// #include <Triangle.h>
+#include "..\Element\Element.h"
+#include "..\Element\Triangle.h"
 // #include <Quad.h>
 
 template <typename T>

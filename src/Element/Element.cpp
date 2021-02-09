@@ -1,2 +1,6 @@
-#pragma once
-#include <Element.h>
+#include "Element.h"
+
+
+Element::Element(){};
+
+Element::~Element(){};
