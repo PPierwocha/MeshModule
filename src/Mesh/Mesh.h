@@ -6,6 +6,7 @@
 #include <regex>
 #include <map>
 #include "..\Element\Element.h"
+#include "..\Element\Line.h"
 #include "..\Element\Triangle.h"
 // #include <Quad.h>
 
@@ -19,9 +20,9 @@ struct Point
 class Mesh
 {   
     private:
-    int nodes_number_, elements_number_;
-    std::vector<Point<double>> points_cords_;
-    std::vector<Element> elements_;
+    int nodes_number, int_elements_number, bnd_elements_number;
+    std::vector<Point<double>> points_cords;
+    std::vector<Element> interior_elements, boundary_elements;
 
     void readPointsFromLine(std::string line_);
 
@@ -32,7 +33,7 @@ class Mesh
     Mesh(){};
     ~Mesh(){};
 
-    void readGmshFile(std::string file_name);
+    void readGmshFile(std::string file_name_);
     
 
 

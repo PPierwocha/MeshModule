@@ -21,7 +21,7 @@ class Element
 
     public:
 
-    Element();
+    Element(std::vector<int> points, std::vector<int> tags);
     ~Element();
 
     

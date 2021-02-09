@@ -5,8 +5,6 @@
 class Triangle : public Element
 {
     public:
-    Triangle()
-    {
-        type_ = "triangle";
-    }
+    Triangle(std::vector<int> points, std::vector<int> tags);
+    ~Triangle();
 };

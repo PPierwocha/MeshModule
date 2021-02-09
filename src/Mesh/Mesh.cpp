@@ -2,9 +2,9 @@
 
 
 // template <typename T>
-void Mesh::readGmshFile(std::string file_name)
+void Mesh::readGmshFile(std::string file_name_)
 {
-    std::ifstream gmsh_file(file_name);
+    std::ifstream gmsh_file(file_name_);
     std::string line;
 
     //Points
@@ -38,8 +38,8 @@ void Mesh::readGmshFile(std::string file_name)
                 getline(gmsh_file, line);
                 std::regex_search(line, match_node_number, node_number_regex);
                 std::stringstream x_stream(match_node_number[0]);
-                x_stream >> nodes_number_;
-                points_cords_.resize(nodes_number_);
+                x_stream >> nodes_number;
+                points_cords.resize(nodes_number);
             }
             if (line.find(points_end) != line.npos)
                 enable_points_reading = false;
@@ -56,8 +56,7 @@ void Mesh::readGmshFile(std::string file_name)
                 getline(gmsh_file, line);
                 std::regex_search(line, match_elements_number, elements_number_regex);
                 std::stringstream x_stream(match_elements_number[0]);
-                x_stream >> elements_number_;
-                elements_.resize(elements_number_);
+                x_stream >> int_elements_number;
             }
             if (line.find(elements_end) != line.npos)
                 enable_elements_reading = false;
@@ -94,7 +93,7 @@ void Mesh::readPointsFromLine(std::string line_)
         x_stream >> node_ind;
         //std::cout << node_ind << " ";
 
-        if (node_ind > points_cords_.size())
+        if (node_ind > points_cords.size())
             std::cout << "WARNING !! Mesh::readPointsFromLine : node_ind is out of range !" << std::endl;
     }
     
@@ -118,7 +117,7 @@ void Mesh::readPointsFromLine(std::string line_)
             
     }
 
-    points_cords_[node_ind - 1] = tmp_point;
+    points_cords[node_ind - 1] = tmp_point;
     
     // std::cout << std::endl;
     // std::cout << line_init << std::endl;
@@ -208,17 +207,17 @@ void Mesh::readElementFromLine(std::string line_)
     std::cout << "\n";
 
     // instating an Element
-    // switch (elm_type_int)
-    // {
-    // case 15:
-    //     elm_nodes.resize(1); // 1-node point
-    //     break;
-    // case 1:
-    //     elm_nodes.resize(2); // 2-node line
-    //     break;
-    // case 2: // 3-node triangle
-    //     // Triangle(); 
-    // default:
-    //     break;
-    // }
+    switch (elm_type_int)
+    {
+    case 15:
+        break;
+    case 1: // 2-node line
+        boundary_elements.push_back(Line(elm_nodes, elm_tags)); 
+        break;
+    case 2: // 3-node triangle
+        interior_elements.push_back(Triangle(elm_nodes, elm_tags));
+        break;
+    default:
+        break;
+    }
 }
