@@ -19,7 +19,6 @@ include_directories("${PROJECT_SOURCE_DIR}/../src/Mesh")
 file(GLOB source_list "${PROJECT_SOURCE_DIR}/test_mesh_01.cpp" )
 
 # Libraries
-# add_subdirectory(lib/src2)
 add_subdirectory("${PROJECT_SOURCE_DIR}/../src/Mesh" "${PROJECT_SOURCE_DIR}/../src/Mesh")
 
 

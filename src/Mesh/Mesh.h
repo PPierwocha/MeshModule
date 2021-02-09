@@ -3,7 +3,8 @@
 #include <string>
 #include <iostream>
 #include <regex>
-// #include <Element.h>
+#include <map>
+#include <..\Element\Element.h>
 // #include <Triangle.h>
 // #include <Quad.h>
 
@@ -17,11 +18,13 @@ struct Point
 class Mesh
 {   
     private:
-    int node_number_;
+    int nodes_number_, elements_number_;
     std::vector<Point<double>> points_cords_;
-    // std::vector<Element<T>> elements_;
+    std::vector<Element> elements_;
 
     void readPointsFromLine(std::string line_);
+
+    void readElementFromLine(std::string line_);
 
     public:
 

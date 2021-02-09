@@ -1,17 +1,19 @@
 #include <vector>
+#include <string>
 
 
 
 
-template <typename T>
+
 class Element
 {
-    private:
+    protected:
     int element_ind_;
     std::vector<int> points_;
     std::vector<int> faces_;
     std::vector<int> neighbours_;
-    static char32_t* type_;
+    std::vector<int> tags_;
+    std::string type_;
 
 
     public:

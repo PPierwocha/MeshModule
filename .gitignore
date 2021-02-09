@@ -36,5 +36,11 @@
 
 
 # cmake files
+build
 *.cmake
+*.tcl
 CMakeFiles
+CMakeCache.txt
+
+# make files
+Makefile

@@ -1,8 +1,8 @@
 #pragma once
 #include <Element.h>
 
-template <typename T>
-class Quad : public Element<T>
+
+class Quad : public Element
 {
     public:
     Quad()

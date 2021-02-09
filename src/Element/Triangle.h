@@ -1,8 +1,8 @@
 #pragma once
 #include <Element.h>
 
-template <typename T>
-class Triangle : public Element<T>
+
+class Triangle : public Element
 {
     public:
     Triangle()
