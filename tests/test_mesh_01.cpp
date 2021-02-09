@@ -12,6 +12,6 @@ int main()
 
     test_mesh.readGmshFile(file_name);
     
-
+    test_mesh.printMeshInfo();
     return 0;
 }

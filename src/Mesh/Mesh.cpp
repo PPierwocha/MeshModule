@@ -221,3 +221,10 @@ void Mesh::readElementFromLine(std::string line_)
         break;
     }
 }
+
+
+void Mesh::printMeshInfo()
+{
+    std::cout << "Boundary elements: " << boundary_elements.size() << std::endl;
+    std::cout << "Interior elements: " << interior_elements.size() << std::endl;
+}

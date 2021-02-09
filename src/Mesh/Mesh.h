@@ -35,6 +35,6 @@ class Mesh
 
     void readGmshFile(std::string file_name_);
     
-
+    void printMeshInfo();
 
 };
