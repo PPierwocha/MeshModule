@@ -31,7 +31,7 @@ void Element::checkIfNeighbour(std::vector<Face> elm_face_2, int elm_ind)
             {
                 (*neighbour_iter) = elm_ind;
                 outer_break = true;
-                std::cout << "Found neighbour !" << (*neighbour_iter) << std::endl;
+                // std::cout << "Found neighbour !" << (*neighbour_iter) << std::endl;
                 // break;
             }
         }
