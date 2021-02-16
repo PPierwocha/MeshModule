@@ -11,6 +11,8 @@ int main()
     Mesh test_mesh;
 
     test_mesh.readGmshFile(file_name);
+
+    test_mesh.initFVMesh();
     
     test_mesh.printMeshInfo();
     return 0;

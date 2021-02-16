@@ -4,14 +4,9 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include "Face\Face.h"
 
 
-struct Face
-{
-    std::vector<int> points;
-    std::vector<double> versor;
-    double surface;    
-};
 
 
 
@@ -32,7 +27,7 @@ class Element
     ~Element();
 
     
-
+    void checkIfNeighbour(std::vector<Face> elm_face_2, int elm_ind);
 };
 
 

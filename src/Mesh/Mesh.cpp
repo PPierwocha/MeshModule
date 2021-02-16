@@ -142,7 +142,7 @@ void Mesh::readElementFromLine(std::string line_)
 
     std::string line_init = line_;
     int elm_ind, elm_type_int, num_of_tags;
-    std::vector<int> elm_tags, elm_nodes;
+    std::vector<int> elm_tags, elm_nodes, elm_neighb_;
 
     int col_ctr = 1;
     int node_ctr = 0;
@@ -225,7 +225,54 @@ void Mesh::resizeElementNodesVar(std::vector<int> * elm_nodes_, int elm_type_int
         break;
     case 2:
         elm_nodes_ -> resize(3); // 3-node triangle
+        break;
     default:
         break;
     }
 }
+
+void Mesh::initFVMesh()
+{
+    this -> findNeighbours();
+}
+
+void Mesh::findNeighbours()
+{
+    std::vector<Element>::iterator elm_iter_start = interior_elements.begin();
+    std::vector<Element>::iterator elm_iter_end = interior_elements.end();
+    std::vector<Element>::iterator elm_iter_1 = elm_iter_start;
+    int elm_ind_2, elm_ind_2_end;
+    elm_ind_2_end = interior_elements.size();
+
+    int neighbour_ctr = 0;
+    int neighbour_err;
+
+    std::vector<Face> elm_faces_1, elm_faces_2;
+
+    for (elm_iter_1; elm_iter_1 != elm_iter_end; elm_iter_1++)
+    {
+
+        for (elm_ind_2 = 0; elm_ind_2 < elm_ind_2_end; elm_ind_2++)
+        {
+            elm_faces_2 = interior_elements[elm_ind_2].faces_;
+
+            elm_iter_1 -> checkIfNeighbour(elm_faces_2, elm_ind_2);
+        }
+    }
+
+    
+    for (elm_iter_1 = elm_iter_start; elm_iter_1 != elm_iter_end; elm_iter_1++)
+    {
+
+        for (int ind = 0; ind < 3; ind++)
+        {
+            if ((*elm_iter_1).neighbours_[ind] > -1)
+                neighbour_ctr++;
+        }
+    }
+    neighbour_err = 3*interior_elements.size() - boundary_elements.size() - neighbour_ctr;
+
+    std::cout << "Neighbour error: " << neighbour_err << std::endl;
+}
+
+

@@ -16,6 +16,8 @@ struct Point
     T x, y, z;
 };
 
+
+
 // template <typename T>
 class Mesh
 {   
@@ -30,12 +32,16 @@ class Mesh
 
     void resizeElementNodesVar(std::vector<int> * elm_nodes_, int elm_type_int_);
 
+    void findNeighbours();
+
     public:
 
     Mesh(){};
     ~Mesh(){};
 
     void readGmshFile(std::string file_name_);
+
+    void initFVMesh();
     
     void printMeshInfo();
 
