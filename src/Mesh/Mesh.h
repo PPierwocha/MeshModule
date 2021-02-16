@@ -28,6 +28,8 @@ class Mesh
 
     void readElementFromLine(std::string line_);
 
+    void resizeElementNodesVar(std::vector<int> * elm_nodes_, int elm_type_int_);
+
     public:
 
     Mesh(){};

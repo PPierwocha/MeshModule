@@ -27,6 +27,7 @@ void Mesh::readGmshFile(std::string file_name_)
     {
         while (getline(gmsh_file, line))
         {
+            // Reading Points
             if (enable_points_reading)
             {
                 this->readPointsFromLine(line);
@@ -51,7 +52,7 @@ void Mesh::readGmshFile(std::string file_name_)
             }
             if (line.find(elements_start) != line.npos)
             {
-                std::cout << line;
+                // std::cout << line;
                 enable_elements_reading = true;
                 getline(gmsh_file, line);
                 std::regex_search(line, match_elements_number, elements_number_regex);
@@ -142,14 +143,9 @@ void Mesh::readElementFromLine(std::string line_)
     std::string line_init = line_;
     int elm_ind, elm_type_int, num_of_tags;
     std::vector<int> elm_tags, elm_nodes;
-    std::map<int, std::string> element_type = {
-        {15, "point"},
-        {1, "line"},
-        {2, "triangle"}
-    };
+
     int col_ctr = 1;
     int node_ctr = 0;
-    Point<double> tmp_point;
 
     std::regex elm_int_regex("[0-9]+");
     std::smatch match_int;
@@ -165,20 +161,8 @@ void Mesh::readElementFromLine(std::string line_)
         else if (col_ctr == 2) // Element type
         {
             x_stream >> elm_type_int;
-
-            switch (elm_type_int)
-            {
-            case 15:
-                elm_nodes.resize(1); // 1-node point
-                break;
-            case 1:
-                elm_nodes.resize(2); // 2-node line
-                break;
-            case 2:
-                elm_nodes.resize(3); // 3-node triangle
-            default:
-                break;
-            }
+            this -> resizeElementNodesVar(&elm_nodes, elm_type_int);
+            
         }
         else if (col_ctr == 3) // number of element tags
         {
@@ -201,10 +185,10 @@ void Mesh::readElementFromLine(std::string line_)
             
     }
 
-    for (auto x : elm_nodes)
-        std::cout << x << " ";
+    // for (auto x : elm_nodes)
+    //     std::cout << x << " ";
     
-    std::cout << "\n";
+    // std::cout << "\n";
 
     // instating an Element
     switch (elm_type_int)
@@ -227,4 +211,21 @@ void Mesh::printMeshInfo()
 {
     std::cout << "Boundary elements: " << boundary_elements.size() << std::endl;
     std::cout << "Interior elements: " << interior_elements.size() << std::endl;
+}
+
+void Mesh::resizeElementNodesVar(std::vector<int> * elm_nodes_, int elm_type_int_)
+{
+    switch (elm_type_int_)
+    {
+    case 15:
+        elm_nodes_ -> resize(1); // 1-node point
+        break;
+    case 1:
+        elm_nodes_ -> resize(2); // 2-node line
+        break;
+    case 2:
+        elm_nodes_ -> resize(3); // 3-node triangle
+    default:
+        break;
+    }
 }
