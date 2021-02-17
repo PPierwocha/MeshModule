@@ -233,7 +233,8 @@ void Mesh::resizeElementNodesVar(std::vector<int> * elm_nodes_, int elm_type_int
 
 void Mesh::initFVMesh()
 {
-    this -> findNeighbours();
+    findNeighbours();
+    markFacesOnBCs();
 }
 
 void Mesh::findNeighbours()
@@ -273,6 +274,44 @@ void Mesh::findNeighbours()
     neighbour_err = 3*interior_elements.size() - boundary_elements.size() - neighbour_ctr;
 
     std::cout << "Neighbour error: " << neighbour_err << std::endl;
+}
+
+void Mesh::markFacesOnBCs()
+{
+    std::vector<Element>::iterator elm_iter_start = interior_elements.begin();
+    std::vector<Element>::iterator elm_iter_end = interior_elements.end();
+    std::vector<Element>::iterator elm_iter_1 = elm_iter_start;
+    int elm_ind_bc, elm_ind_bc_end;
+    elm_ind_bc_end = boundary_elements.size();
+
+    int neighbour_ctr = 0;
+    int neighbour_err;
+
+    std::vector<Face> elm_faces_1, boundary_face_2;
+
+    for (elm_iter_1; elm_iter_1 != elm_iter_end; elm_iter_1++)
+    {
+
+        for (elm_ind_bc = 0; elm_ind_bc < elm_ind_bc_end; elm_ind_bc++)
+        {
+            boundary_face_2 = boundary_elements[elm_ind_bc].faces_;
+
+            elm_iter_1 -> checkIfBoundary(boundary_face_2, int_elements_number + 1 + elm_ind_bc);
+        }
+    }
+
+    for (elm_iter_1 = elm_iter_start; elm_iter_1 != elm_iter_end; elm_iter_1++)
+    {
+
+        for (int ind = 0; ind < 3; ind++)
+        {
+            if ((*elm_iter_1).neighbours_[ind] > int_elements_number)
+                neighbour_ctr++;
+        }
+    }
+    neighbour_err = boundary_elements.size() - neighbour_ctr;
+
+    std::cout << "Boundary marking error: " << neighbour_err << std::endl;
 }
 
 

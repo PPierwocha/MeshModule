@@ -14,5 +14,6 @@ class Face
     ~Face();
 
     bool operator==(const Face& face_);
+    bool operator|=(const Face& face_);
 };
 

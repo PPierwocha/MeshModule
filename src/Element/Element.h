@@ -28,6 +28,7 @@ class Element
 
     
     void checkIfNeighbour(std::vector<Face> elm_face_2, int elm_ind);
+    void checkIfBoundary(std::vector<Face> elm_face_2, int elm_ind);
 };
 
 

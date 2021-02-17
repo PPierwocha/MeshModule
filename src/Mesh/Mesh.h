@@ -34,6 +34,8 @@ class Mesh
 
     void findNeighbours();
 
+    void markFacesOnBCs();
+
     public:
 
     Mesh(){};
